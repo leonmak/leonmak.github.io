@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Home on Floating Boat</title>
+    <title>Home on A Floating Boat</title>
     <link>http://leonmak.me/</link>
-    <description>Recent content in Home on Floating Boat</description>
+    <description>Recent content in Home on A Floating Boat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 25 Nov 2016 19:14:43 -0700</lastBuildDate>
@@ -80,6 +80,18 @@ Token based authentication is often compared to the traditional method of saving
       <guid>http://leonmak.me/posts/google-summer-of-code/</guid>
       <description>Google Summer of Code: Loklak GSoC [](https://summerofcode.withgoogle.com/) is a program that encourages open source. The project Loklak is under the FOSSASIA organisation, and is a distributed scraper. The following is my proposal for GSoC.
 Abstract Currently, Loklak.net has it’s own search and social wall capabilities. Loklak.org also has a few front-end apps. However, they are currently not as feature filled as Loklak.net, so the project aims to add additional visualisations and display options, including a live-streaming tweet wall, and timeline for loklak.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://leonmak.me/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://leonmak.me/about/</guid>
+      <description>Some thoughts, and what I&amp;rsquo;ve done.
+My resume: leonmak.me
+Some projects:
+ CS229 Machine Learning:  Deep Learning approach to Accent Classification http://cs229.stanford.edu/proj2017/final-reports/5244230.pdf  CS3216 Product Engineering:  http://1our.today  CS3217 Mobile Development:  http://leonmak.me/resume.pdf for examples    </description>
     </item>
     
   </channel>
