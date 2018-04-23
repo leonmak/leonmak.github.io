@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Google Summer of Code: Loklak | Floating Boat</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Google Summer of Code: Loklak</span></h1>
+
+<h2 class="date">2016/05/21</h2>
+</div>
+
+<main>
+
+
+<h1 id="google-summer-of-code-loklak">Google Summer of Code: Loklak</h1>
+
+<p>GSoC [](<a href="https://summerofcode.withgoogle.com/">https://summerofcode.withgoogle.com/</a>) is a program that encourages open source. The project Loklak is under the FOSSASIA organisation, and is a distributed scraper. The following is my proposal for GSoC.</p>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>Currently, <a href="http://loklak.net">Loklak.net</a> has it’s own search and social wall capabilities.
+<a href="http://loklak.org/apps/">Loklak.org</a> also has a few front-end apps.
+However, they are currently not as feature filled as <a href="http://loklak.net">Loklak.net</a>, so the project aims to add additional visualisations and display options, including a live-streaming tweet wall, and timeline for loklak.org</p>
+
+<h2 id="the-project">The project</h2>
+
+<p>A front-end app that uses loklak.org for API calls to obtain tweets in json format. Users can deploy their own loklak server or locally or online. I have previously developed a prototype with meteor.js <a href="https://github.com/leonmak/meteor-twitterwall">(github repo)</a> which you can deploy locally or online too!<br />
+<img src="https://raw.githubusercontent.com/leonmak/meteor-twitterwall/master/public/ss.gif" alt="" /></p>
+
+<p>But upon discussion with the loklak team we concluded it was hard to integrate with loklak.org like the current front-end apps, so I decided to make the front-end app with a front-end framework like Angular or React.</p>
+
+<p>This is a sample of part of the search.json API response and fields we could use for visualisations:</p>
+
+<pre><code class="language-js">{  
+ ... ,  
+ &quot;search_metadata&quot;: {  
+ &quot;itemsPerPage&quot;: &quot;100&quot;,  
+ &quot;count&quot;: &quot;18&quot;,  
+ &quot;count\_twitter\_all&quot;: 0,  
+ &quot;count\_twitter\_new&quot;: 18,  
+ &quot;count_backend&quot;: 0,  
+ &quot;count_cache&quot;: 17,  
+ &quot;hits&quot;: 18,  
+ &quot;period&quot;: 54379295,  
+ &quot;query&quot;: &quot;from:leonmakk&quot;,  
+ &quot;client&quot;: &quot;118.201.140.222&quot;,  
+ &quot;time&quot;: 1728,  
+ &quot;servicereduction&quot;: &quot;false&quot;,  
+ &quot;scraperInfo&quot;: &quot;http://kaskelix.de:9000,local&quot;  
+ },  
+ &quot;statuses&quot;: \[  
+ {  
+ &quot;timestamp&quot;: &quot;2016-05-17T05:03:07.163Z&quot;,  
+ &quot;created_at&quot;: &quot;2016-05-17T04:59:47.000Z&quot;,  
+ &quot;screen_name&quot;: &quot;leonmakk&quot;,  
+ &quot;text&quot;: &quot;http://en.wikipedia.org/wiki/PC\_Tools\_(Central\_Point\_Software)&quot;,  
+ &quot;link&quot;: &quot;https://twitter.com/leonmakk/status/732435424145227776&quot;,  
+ &quot;id_str&quot;: &quot;732435424145227776&quot;,  
+ &quot;source_type&quot;: &quot;TWITTER&quot;,  
+ &quot;provider_type&quot;: &quot;SCRAPED&quot;,  
+ &quot;retweet_count&quot;: 0,  
+ &quot;favourites_count&quot;: 0,  
+ &quot;images&quot;: \[\],  
+ &quot;images_count&quot;: 0,  
+ &quot;audio&quot;: \[\],  
+ &quot;audio_count&quot;: 0,  
+ &quot;videos&quot;: \[\],  
+ &quot;videos_count&quot;: 0,  
+ &quot;place_name&quot;: &quot;Central Point&quot;,  
+ &quot;place_id&quot;: &quot;&quot;,  
+ &quot;place_context&quot;: &quot;FROM&quot;,  
+ &quot;place_country&quot;: &quot;United States&quot;,  
+ &quot;place\_country\_code&quot;: &quot;US&quot;,  
+ &quot;place\_country\_center&quot;: \[  
+ -83.27110293007973,  
+ 35.6452903550329  
+ \],  
+ &quot;location_point&quot;: \[  
+ -122.91642774963586,  
+ 42.37596116139363  
+ \],  
+ &quot;location_radius&quot;: 0,  
+ &quot;location_mark&quot;: \[  
+ -122.91596190504673,  
+ 42.37590151256903  
+ \],  
+ &quot;location_source&quot;: &quot;PLACE&quot;,  
+ &quot;hosts&quot;: \[&quot;en.wikipedia.org&quot;\],  
+ &quot;hosts_count&quot;: 1,  
+ &quot;links&quot;: \[&quot;http://en.wikipedia.org/wiki/PC\_Tools\_(Central\_Point\_Software)&quot;\],  
+ &quot;links_count&quot;: 1,  
+ &quot;mentions&quot;: \[\],  
+ &quot;mentions_count&quot;: 0,  
+ &quot;hashtags&quot;: \[\],  
+ &quot;hashtags_count&quot;: 0,  
+ &quot;without\_l\_len&quot;: 1,  
+ &quot;without\_lu\_len&quot;: 1,  
+ &quot;without\_luh\_len&quot;: 1,  
+ &quot;user&quot;: {  
+ &quot;appearance_first&quot;: &quot;2016-05-15T06:28:23.263Z&quot;,  
+ &quot;profile\_image\_url\_https&quot;: &quot;https://abs.twimg.com/sticky/default\_profile\_images/default\_profile\_3\_bigger.png&quot;,  
+ &quot;screen_name&quot;: &quot;leonmakk&quot;,  
+ &quot;user_id&quot;: &quot;728557565676642306&quot;,  
+ &quot;name&quot;: &quot;leon&quot;,  
+ &quot;appearance_latest&quot;: &quot;2016-05-15T06:28:23.263Z&quot;  
+ }  
+ },  
+ {  
+ &quot;timestamp&quot;: &quot;2016-05-15T06:28:23.263Z&quot;,  
+ },   
+ ...  
+ \]  
+}  
+</code></pre>
+
+<ul>
+<li>The project aims to improve on the visualisations by using data from the search API.<br /></li>
+<li>Analysis of tweets will be done using javascript libraries like D3.js, to produce interactive visualisations.</li>
+<li>The “timestamp”, “retweet_count”, “hashtags” and “favourites_count” data fields will be used to update the app without needing to refresh the page by polling the loklak server and front-end updates in real time. For example we can show:<br />
+
+<ul>
+<li>Top hashtag count &amp; users(by retweet/likes) for each day/ hour/ since the 1st day, using bubble charts:<br />
+stacked bar charts to show popularity of selected hashtags, divided into 2 groups for each day radar charts for selected hashtag over time of day<br /></li>
+<li>The “mentions” data field will be used for a directed social graph.</li>
+</ul></li>
+</ul>
+
+<h3 id="benefits-for-loklak">Benefits for loklak</h3>
+
+<ul>
+<li>More compelling visualizations for loklak which let users make use of loklak_server for their events.</li>
+<li>An app base for loklak users to easily use data from loklak servers, giving users alternatives to loklak.net when loklak.org is not available, and the simple front end apps on loklak.org, which do not currently update in real time, like loklak.net.</li>
+<li>An app base in Javascript which encourage developers to contribute to loklak front ends, or modify it for their own needs</li>
+</ul>
+
+<h3 id="project-plan">Project Plan</h3>
+
+<table>
+<thead>
+<tr>
+<th>Time  (weeks)</th>
+<th align="left">Task</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>2</td>
+<td align="left">Develop the visualizations, using the existing data from loklak server, and libraries like Highcharts or D3 to display the data.</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop from ‘outside in’ : Make the shell of the app, ie. the layout and structure</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop the home page &amp; server data processing to better diff the tweets and reduce the current memory load, which was a challenge for the prototype, and implement lazy loading when the tweets overflow.</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop the tweet grid wall</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop the data visualisation combi 1</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop the data visualisation combi 2</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop settings page and function for user to add settings</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td align="left">Develop settings page to allow user to add panels</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td align="left">Tie up loose ends and make screencasts and documentation</td>
+</tr>
+</tbody>
+</table>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

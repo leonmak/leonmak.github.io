@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on Floating Boat</title>
+    <link>http://leonmak.me/</link>
+    <description>Recent content in Home on Floating Boat</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 25 Nov 2016 19:14:43 -0700</lastBuildDate>
+    
+	<atom:link href="http://leonmak.me/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CS3216 Review</title>
+      <link>http://leonmak.me/posts/cs3216-review/</link>
+      <pubDate>Fri, 25 Nov 2016 19:14:43 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/cs3216-review/</guid>
+      <description>I thought of doing a more specific breakdown of the web applications I had contributed to. Hopefully this can also give people (like my juniors) who want to take this module an idea of what to expect, but really the type of ideas are limited by your creativity. There are also some groups who did native for final project, but it’s because they are (really) good at it. I’ll not be covering Assignment 2 as it was an application critique and no building was done.</description>
+    </item>
+    
+    <item>
+      <title>CS3216 1our Today Final</title>
+      <link>http://leonmak.me/posts/cs3216-1our-today-final/</link>
+      <pubDate>Sun, 20 Nov 2016 19:08:14 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/cs3216-1our-today-final/</guid>
+      <description>What do users want? Ok, so this was a rather vague question I asked myself when we were coming back from Mandai.
+Instead of coming up with a solution, now we had to find a better problem to solve.
+We also had to meet Colin the day after so we decided to shift our target audience to students, whose problems we knew better.
+Initially the group were discussing about an idea for attendance taking, but that problem was already solved, when we spoke to Colin about it.</description>
+    </item>
+    
+    <item>
+      <title>CS3216 1our Today</title>
+      <link>http://leonmak.me/posts/cs3216-1our-today/</link>
+      <pubDate>Sun, 02 Oct 2016 18:38:23 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/cs3216-1our-today/</guid>
+      <description>The initial idea I did some reading on time credits, which my team is planning to adapt in our final project, 1our.
+Time Banking was initially popularized in the US by human rights lawyer Edgar Cahn in 1986, when “money for social programs dried up” and no dominant approach to social service in the US was coming up with creative ways to solve the problem, and the term ‘Time Credits’ were coined by him.</description>
+    </item>
+    
+    <item>
+      <title>CS3216 Progressive Web Apps</title>
+      <link>http://leonmak.me/posts/cs3216-progressive-web-apps/</link>
+      <pubDate>Tue, 23 Aug 2016 18:28:33 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/cs3216-progressive-web-apps/</guid>
+      <description>PWA The second project is on Progressive Web Apps. Our project title is called Drop In.
+Drop in So my group decided on doing an app using emoji’s and mapbox, it’s Pokemon Go for chat where you (or businesses) could drop and discover messages (mockup screenshots below) around you. Well apparently you need to upload images to Mapbox Studio for custom marker icons in MapboxGL, the only other custom image (using css) was the user’s avartar which updated on map move rather than as a marker property.</description>
+    </item>
+    
+    <item>
+      <title>CS3216 Exchange Buddy</title>
+      <link>http://leonmak.me/posts/cs3216-exchange-buddy/</link>
+      <pubDate>Mon, 15 Aug 2016 18:20:28 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/cs3216-exchange-buddy/</guid>
+      <description>CS3216 is a &amp;lsquo;selective&amp;rsquo; course, and has pushed me to developing my development skills. The following is our process thus far for the exchange buddy web app:
+From Ideas to Paper After discussing as a team, we decided to go with the exchange buddy idea. Our first step was to list down the features we thought exchange students, or ourselves, would want. Eugene already had a simple wordpress site he built for exchangebuddy.</description>
+    </item>
+    
+    <item>
+      <title>Javascript web tokens</title>
+      <link>http://leonmak.me/posts/javascript-web-tokens/</link>
+      <pubDate>Fri, 22 Jul 2016 18:08:59 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/javascript-web-tokens/</guid>
+      <description>In the loklak webclient, the plan is to store the accounts locally on mongodb, instead of using loklak server to store accounts. Here’s how I used JWTs (JSON Web Tokens) for basic user authentication.
+Token based authentication is often compared to the traditional method of saving a session id in a cookie, and checking the user information in the session object for every request. Instead of saving user information on the server and checking it every request, a token, which allows access to the server, is given in exchange for valid credentials and is sent in every request.</description>
+    </item>
+    
+    <item>
+      <title>Google Summer of Code: Loklak</title>
+      <link>http://leonmak.me/posts/google-summer-of-code/</link>
+      <pubDate>Sat, 21 May 2016 17:45:53 -0700</pubDate>
+      
+      <guid>http://leonmak.me/posts/google-summer-of-code/</guid>
+      <description>Google Summer of Code: Loklak GSoC [](https://summerofcode.withgoogle.com/) is a program that encourages open source. The project Loklak is under the FOSSASIA organisation, and is a distributed scraper. The following is my proposal for GSoC.
+Abstract Currently, Loklak.net has it’s own search and social wall capabilities. Loklak.org also has a few front-end apps. However, they are currently not as feature filled as Loklak.net, so the project aims to add additional visualisations and display options, including a live-streaming tweet wall, and timeline for loklak.</description>
+    </item>
+    
+  </channel>
+</rss>

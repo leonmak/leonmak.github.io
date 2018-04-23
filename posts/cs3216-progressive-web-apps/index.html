@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS3216 Progressive Web Apps | Floating Boat</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">CS3216 Progressive Web Apps</span></h1>
+
+<h2 class="date">2016/08/23</h2>
+</div>
+
+<main>
+
+
+<h1 id="pwa">PWA</h1>
+
+<p>The second project is on Progressive Web Apps. Our project title is called Drop In.</p>
+
+<h2 id="drop-in">Drop in</h2>
+
+<p>So my group decided on doing an app using emoji’s and mapbox, it’s Pokemon Go for chat where you (or businesses) could drop and discover messages (mockup screenshots below) around you. Well apparently you need to <a href="https://www.mapbox.com/help/custom-markers/">upload images to Mapbox Studio for custom marker icons in MapboxGL</a>, the only other custom image (using css) was the user’s avartar which updated on map move rather than as a marker property. We thought we could upload all 1200+ emoji / 874 twemoji svg files and be done (they were only 1mb, why not?), but strangely there was an (AFAIK) undocumented 500 sprite limit.</p>
+
+<h3 id="lesser-is-better">Lesser is better</h3>
+
+<p>Anyway emojis like flags and letters would not be too relevant for our purposes, so we just had to choose which emojis we would support. Based on <a href="http://emojitracker.com/">http://emojitracker.com/</a> we thought that using the people + objects categories (425 twemojis) would cover well enough ground for people to post their reactions and activities.</p>
+
+<h3 id="how-to-get-the-files">How to get the files</h3>
+
+<p>The next step was to upload the svgs. To choose a subset of <a href="https://github.com/twitter/twemoji">twemojis</a> to upload to Mapbox Studio and to use with <a href="https://github.com/chadoh/react-emoji-picker">react-emoji-picker</a> in our app, I had to first get the list of twemojis we would support on the emoji picker. There was a category to name mapping, then there was a name to unicode mapping, put the two together and a script and tada I got the files, here’s <a href="https://github.com/leonmak/twemoji-filter">the repo</a>.</p>
+
+<h2 id="quick-wins-get-offline-with-sw-precache">Quick wins - get offline with sw-precache</h2>
+
+<p>Progressive web apps have offline functionality because of service workers caching static assets and data.<br />
+Starting with the create-react-app boiler plate, you can easily see this in action by following the steps in <a href="https://github.com/jeffposnick/create-react-pwa/compare/starting-point...pwa">https://github.com/jeffposnick/create-react-pwa</a>.</p>
+
+<p>As with any PWA, first make a <a href="https://developers.google.com/web/updates/2014/11/Support-for-installable-web-apps-with-webapp-manifest-in-chrome-38-for-Android?hl=en">manifest.json</a> in the root folder and link it in <code>index.html</code>, and also register the service worker that will be created by sw-precache:</p>
+
+<pre><code class="language-html">&lt;link rel=&quot;manifest&quot; href=&quot;manifest.json&quot;&gt;  
+&lt;!-- ... --&gt;  
+&lt;!-- At the bottom --&gt;  
+&lt;script&gt;  
+if ('serviceWorker' in navigator) {  
+ navigator.serviceWorker.register('service-worker.js').catch(function(ex) {  
+ console.warn(ex);  
+ });  
+}  
+&lt;/script&gt;  
+</code></pre>
+
+<p>Then in the package.json under “scripts”:</p>
+
+<pre><code class="language-js">&quot;scripts&quot;: {  
+ &quot;build&quot;: &quot;react-scripts build &amp;&amp; cp manifest.json build/ &amp;&amp; sw-precache --root='build/' --static-file-globs='build/**/!(\*map\*)'&quot;,  
+}  
+</code></pre>
+
+<p>This creates the production build, copies the manifest.json into the build folder, runs sw-precache in the build folder and caches the static content.</p>
+
+<p>To deploy the static build to a https I used surge.sh, assuming you’re in the root folder, I can deploy to a https domain to see it working:</p>
+
+<pre><code class="language-sh">surge client/build --domain drop-dev.surge.sh  
+</code></pre>
+
+<p>Open chrome dev tools under application you should see it:<br />
+<img src="http://res.cloudinary.com/leonmak/image/upload/v1474339302/ss-blog-post-6_bqobvk.png" alt="ss" /></p>
+
+<h2 id="deploying">Deploying</h2>
+
+<p>As assignment 3 comes to an end, just wanna share a few options for deploying the app which was built upon the <a href="https://github.com/facebookincubator/create-react-app">create-react-app</a> boilerplate.</p>
+
+<h3 id="the-no-backend-option">The no-backend option</h3>
+
+<p>These are mainly the options stated in the <a href="https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md#deployment">documentation</a>, which makes use of the build folder generated with npm build script command. There’s heroku buildpacks, modulus, now and surge.sh, and probably more being added soon. These had been useful for deploying the frontend of the app, when our backend was not ready yet.</p>
+
+<h3 id="with-backend">With backend</h3>
+
+<p>Deploying the backend comes with its own set of challenges. Before that, developing one to work with the webpack dev server was also a tough one, here’s a <a href="https://www.fullstackreact.com/articles/using-create-react-app-with-a-server/">tutorial that came in useful for us</a>. We eventually used Express for our backend, and it worked out quite well for us.</p>
+
+<p>These were steps that worked from the <a href="https://github.com/facebookincubator/create-react-app/issues/639">discussion in the issues</a>:</p>
+
+<ul>
+<li>Delete <code>Procfile</code></li>
+<li>Move <code>&quot;react-scripts&quot;: &quot;0.2.3&quot;</code> from devDependencies to dependencies</li>
+</ul>
+
+<p>In the server’s package.json:
+To tell npm to run server.js:
+*   Replace <code>&quot;start&quot;: &quot;nf start -p 3000&quot;</code> with <code>&quot;start&quot;: &quot;node server.js&quot;</code></p>
+
+<p>Heroku runs <a href="https://devcenter.heroku.com/articles/nodejs-support#build-behavior">npm install</a> as default so to also run <code>npm i</code> in our client build’s <code>package.json</code>:
+*   Replace <code>&quot;server&quot;: &quot;API_PORT=3001 ./node_modules/.bin/babel-node server.js</code> with <code>&quot;install&quot;: &quot;cd client &amp;&amp; npm install &amp;&amp; npm run build &amp;&amp; cd ..&quot;</code></p>
+
+<h3 id="in-server-js">In server.js</h3>
+
+<p>To tell serve up the static site on the root domain:</p>
+
+<ul>
+<li>Add <code>const path = require('path');</code></li>
+<li>Replace <code>process.env.API_PORT</code> with <code>process.env.PORT</code></li>
+<li>Add <code>app.use(express.static(path.join(__dirname, 'client/build')));</code></li>
+</ul>
+
+<p>In <code>routes.js</code> (or wherever your routes are)</p>
+
+<pre><code class="language-js">var router = express.Router();  
+  
+router.get('/api/feeds', FeedsController.getFeeds); // Get all the feeds  
+  
+// ... other API routes  
+  
+router.get('*', function (req, res) {  
+ res.sendFile(path.join(__dirname, '/../client/build/index.html'))  
+})  
+</code></pre>
+
+<p>This is so that if I type in a direct url for example <a href="https://dropins.space/drops">https://dropins.space/drops</a>, I won’t get a 404.</p>
+
+<p>It sucks that heroku puts dynos to sleep, but a <em>simple</em> workaround I googled was to do:</p>
+
+<pre><code class="language-js">var https = require(&quot;https&quot;);  
+setInterval(function() {  
+ https.get(&quot;https://dropins.space&quot;);  
+}, 300000); // ping every 5 minutes (300000)  
+</code></pre>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

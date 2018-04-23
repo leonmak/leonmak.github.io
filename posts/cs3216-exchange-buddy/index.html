@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS3216 Exchange Buddy | Floating Boat</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">CS3216 Exchange Buddy</span></h1>
+
+<h2 class="date">2016/08/15</h2>
+</div>
+
+<main>
+
+
+<p>CS3216 is a &lsquo;selective&rsquo; course, and has pushed me to developing my development skills. The following is our process thus far for the exchange buddy web app:</p>
+
+<h2 id="from-ideas-to-paper">From Ideas to Paper</h2>
+
+<hr />
+
+<p>After discussing as a team, we decided to go with the exchange buddy idea. Our first step was to list down the features we thought exchange students, or ourselves, would want. Eugene already had a simple wordpress site he built for exchangebuddy.com, and it was insightful to hear his view on the needs of exchange students, something I myself had not yet considered (being year 2, probably I should). Mainly the gap we identified was that exchange students who do not go to places with their friends do look for others who are going on exchange to the same university with them. Normally there would be a google form where people would fill in their contacts and people could view who else were going to that university, or a facebook group (for example: Singaporeans in Cambridge).</p>
+
+<p>Also issues like accomodation, information or paperwork (for example: rules for visa holders setting up bank account) were some of the common pain points we got from talking to our friends who as of this writing had just left for exchange, which corroborated Eugene’s research from exchange buddy.</p>
+
+<h2 id="from-paper-to-sketch">From Paper to Sketch</h2>
+
+<hr />
+
+<p>We then made simple paper prototypes (or on whiteboard) where we threw around ideas and layouts.</p>
+
+<p>I then made a few mockups thinking of the components we would use. Pictures speak louder than words so:</p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907440/Group_Page_Wiki_wzjtdd.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907440/Group_Page_Wiki_wzjtdd.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907440/Group_Page_Chat_s3pwzy.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907440/Group_Page_Chat_s3pwzy.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907441/Tips_Page_hfx4rr.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907441/Tips_Page_hfx4rr.png" alt="" /></a></p>
+
+<p>After a few rounds of discussion our features changed, for example we didn’t think a listing of other university exchange groups would be that important. Also the grid layout for tips became more of a list.</p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907440/Group_Info_uoajdk.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907440/Group_Info_uoajdk.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907461/Group_Chat_apm2pc.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907461/Group_Chat_apm2pc.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907462/Group_News_wfldyj.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907462/Group_News_wfldyj.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471907470/Group_Info_rrz7u0.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471907470/Group_Info_rrz7u0.png" alt="" /></a></p>
+
+<p>I’ve been using Sketch for a while after my photoshop had expired and I actually rarely had to go back unless I’m working with heavy textures for which Sketch being vector-based is not the best for. But I’m quite biased toward it because I feel it’s less bloated and hangs less on my Macbook Air. Also I can easily export images without having to scale the artboard beforehand so it’s always so crisp, a plus for viewing/ printing. There are also resources like <a href="http://sketchappsources.com">sketchappsources.com</a> where many talented designers post their work, much respect to them!</p>
+
+<h2 id="from-sketch-to-react">From Sketch to React</h2>
+
+<hr />
+
+<p>To build our prototype for the mid-submission, we relied on libraries like material-ui to provide components like cards that we could use, which by default looks ‘better’ than bootstrap. After getting some feedback from tutors and students we also decided that news itself would be quite irrelevant and local events would suit the students need better.</p>
+
+<p>Other React components we needed were also available which meant Irvin could also focus on what I saw as the hard part which was the backend where we were going for ‘Reactive MySQL’, ie. using meteor’s pub sub features with MySQL as our database for real-time updates. Meanwhile I just mocked the data although Thanh and Irvin had made a schema it made developing easier without having to worry about the backend for now.</p>
+
+<p>So as of mid-submission we got most of the layout up and it looks as such:</p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471912017/Screenshot_2016-08-23_08.26.08_jptakn.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471912017/Screenshot_2016-08-23_08.26.08_jptakn.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471911401/screencapture-exchangebuddy-irvinlim-group-chat-1471907721545_qr13pk.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471911401/screencapture-exchangebuddy-irvinlim-group-chat-1471907721545_qr13pk.png" alt="" /></a></p>
+
+<p><a href="http://res.cloudinary.com/leonmak/image/upload/v1471911402/screencapture-exchangebuddy-irvinlim-group-events-1471907730288_hmu7cz.png"><img src="http://res.cloudinary.com/leonmak/image/upload/v1471911402/screencapture-exchangebuddy-irvinlim-group-events-1471907730288_hmu7cz.png" alt="" /></a></p>
+
+<h2 id="draw-it-again">Draw it again</h2>
+
+<hr />
+
+<p>So after building the rough layout we decided to change the info tab and avatar menu as we felt that it didn’t really work out when we were building it. For example the list of cards were really not feasible if there were so many cards and each would be so big when expanded. We decided then to split it into a home tab and an info tab where each grid section linked to it’s own article, so it was more of the original grid layout. I felt that although some more work had to be done to reorder the layouts it was a necessary decision we had to make. So back to the drawing board for those parts:</p>
+
+</main>
+
+  <footer>
+  
+  
+  </footer>
+  </body>
+</html>
+

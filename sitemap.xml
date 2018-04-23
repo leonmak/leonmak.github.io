@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://leonmak.me/posts/cs3216-review/</loc>
+    <lastmod>2016-11-25T19:14:43-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/cs3216-1our-today-final/</loc>
+    <lastmod>2016-11-20T19:08:14-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/cs3216-1our-today/</loc>
+    <lastmod>2016-10-02T18:38:23-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/cs3216-progressive-web-apps/</loc>
+    <lastmod>2016-08-23T18:28:33-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/cs3216-exchange-buddy/</loc>
+    <lastmod>2016-08-15T18:20:28-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/javascript-web-tokens/</loc>
+    <lastmod>2016-07-22T18:08:59-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/google-summer-of-code/</loc>
+    <lastmod>2016-05-21T17:45:53-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/</loc>
+    <lastmod>2016-11-25T19:14:43-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/posts/</loc>
+    <lastmod>2016-11-25T19:14:43-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://leonmak.me/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
